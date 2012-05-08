@@ -4,6 +4,7 @@
  */
 package com.binout.soccer5.boundary;
 
+import com.binout.soccer5.controller.PlayerEJB;
 import com.binout.soccer5.entity.Match;
 import com.binout.soccer5.entity.Player;
 import java.util.ArrayList;
@@ -11,22 +12,20 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import javax.enterprise.inject.Model;
+import javax.inject.Inject;
 
 /**
  *
  * @author benoit
  */
 @Model
-public class Calendar {
+public class CalendarBean {
 
-    
+    @Inject
+    private PlayerEJB ejb;
     
     public List<Player> getPlayers() {
-        List<Player> players = new ArrayList<Player>();
-        players.add(newPlayer());
-        players.add(newPlayer());
-        players.add(newPlayer());
-        return players;
+        return ejb.listPlayers();
     }
 
     public List<Match> getMatches() {

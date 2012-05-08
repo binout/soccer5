@@ -30,9 +30,14 @@
 
             <div class="span6">
                 <br/><br/><br/>
-                <h:dataTable value="#{calendar.matches}" var="match" class="table">
+                <h:dataTable value="#{calendarBean.matches}" var="match" class="table">
                     <f:facet name="header">
-                        <h2><h:outputText value="Calendar" style="color:#f89406"/></h2>
+                        <h:form>
+                            <h2>
+                            <h:outputText value="Calendar" style="color:#f89406"/>
+                            <h:commandLink class="btn btn-primary" ><i class="icon-time icon-white"></i> Add</h:commandLink>
+                            </h2>
+                        </h:form>
                     </f:facet> 
                     <h:column>
                         <b>Match (<h:outputText value="#{match.players.size()}"/>/10) <i class="icon-time"/>
@@ -47,14 +52,14 @@
                             </h:column> 
                         </h:dataTable>
                         <div class="well form-inline">
+                            <h:form rendered="#{match.open}" >
+                                <h:selectOneMenu value="#{availablePlayersBean.selectedItem}">
+                                    <f:selectItems value="#{availablePlayersBean.selectItems}" />
+                                </h:selectOneMenu>
+                                <h:commandLink class="btn btn-success" action="#{availablePlayersBean.action}"><i class="icon-user icon-white"></i> Join</h:commandLink>
+                            </h:form>
                             <a class="btn btn-warning" href="#"><i class="icon-envelope icon-white"></i> Send</a>
                             <a class="btn btn-danger" href="#"><i class="icon-trash icon-white"></i> Delete</a>
-                            <h:form rendered="#{match.open}" >
-                                <h:selectOneMenu>
-                                    <f:selectItem itemLabel="player1" />
-                                </h:selectOneMenu>
-                                <a class="btn btn-success" href="#"><i class="icon-user icon-white"></i> Join</a>
-                            </h:form>
                         </div>
                     </h:column>
                 </h:dataTable>
@@ -62,18 +67,20 @@
 
             <div class="span5">
                 <br/><br/><br/>
-                <h:dataTable value="#{calendar.players}" var="player" class="table">
+                <h:dataTable value="#{allPlayersBean.allPlayers}" var="player" class="table">
                     <f:facet name="header">
                         <h2><h:outputText value="Players" style="color:#f89406"/></h2>
                     </f:facet>
                     <h:column>
-                        <i class="icon-user"/> <h:outputText value="#{player.name}"></h:outputText>
+                        <i class="icon-user"/>&nbsp;<h:outputText value="#{player.name}" title="#{player.mail}"/>
                     </h:column> 
                 </h:dataTable>
                 <h:form class="well form-inline">
-                    Name <h:inputText class="input-small" label="Name"/>
-                    Mail <h:inputText class="input-small" label="Mail"/>
-                    <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> Add</a>
+                    Name <h:inputText id="name" class="input-small" value="#{allPlayersBean.name}" label="Name"/>
+                    Mail <h:inputText id="mail" class="input-medium" value="#{allPlayersBean.mail}" label="Mail"/>
+                    &nbsp;<h:commandLink class="btn btn-primary" action="#{allPlayersBean.register()}"><i class="icon-user icon-white"></i> Add</h:commandLink>
+                    <h:messages style="color:red" for="name"/>
+                    <h:messages style="color:red" for="mail"/>                    
                 </h:form>
             </div>
         </div>
