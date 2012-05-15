@@ -17,6 +17,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>2.2.1</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>6.0</version>
@@ -153,4 +159,12 @@
         </profile>
 
     </profiles>
+    <repositories>
+        <repository>
+            <url>http://repository.primefaces.org/</url>
+            <id>primefaces</id>
+            <layout>default</layout>
+            <name>Repository for library Library[primefaces]</name>
+        </repository>
+    </repositories>
 </project>

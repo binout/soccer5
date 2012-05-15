@@ -21,11 +21,21 @@ import javax.inject.Inject;
 @Model
 public class CalendarBean {
 
+    private Date newDate;
+    
     @Inject
     private PlayerEJB ejb;
     
     public List<Player> getPlayers() {
         return ejb.listPlayers();
+    }
+
+    public Date getNewDate() {
+        return newDate;
+    }
+
+    public void setNewDate(Date newDate) {
+        this.newDate = newDate;
     }
 
     public List<Match> getMatches() {

@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:p="http://primefaces.prime.com.tr/ui">
     >
     <h:head>
         <title>Soccer5 Calendar</title> 
@@ -17,12 +17,16 @@
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <ul class="nav">
-                        <li class="active"><a class="brand" href="#">Soccer 5 Calendar</a></li>
-                    </ul>    
+                    <a class="brand">Soccer 5</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="active"><a>Calendar </a></li>
+                            <li><a href="faces/admin.xhtml">Administration </a></li>
+                        </ul>    
+                    </div>
                 </div>
-            </div>
-        </div> 
+            </div> 
+        </div>
 
         <div class="row">
             <div class="span1">&nbsp;
@@ -32,16 +36,15 @@
                 <br/><br/><br/>
                 <h:dataTable value="#{calendarBean.matches}" var="match" class="table">
                     <f:facet name="header">
-                        <h:form>
-                            <h2>
-                            <h:outputText value="Calendar" style="color:#f89406"/>
-                            <h:commandLink class="btn btn-primary" ><i class="icon-time icon-white"></i> Add</h:commandLink>
-                            </h2>
+                        <h2><h:outputText value="Calendar" style="color:#f89406"/></h2>
+
+                        <h:form class="well form-inline">
+                            <p:calendar value="#{calendarBean.newDate}" pattern="MM/dd/yyyy"/> <h:commandLink class="btn btn-primary" ><i class="icon-time icon-white"></i> Add</h:commandLink>
                         </h:form>
                     </f:facet> 
                     <h:column>
                         <b>Match (<h:outputText value="#{match.players.size()}"/>/10) <i class="icon-time"/>
-                        <h:outputText value=" #{match.date}"/>
+                            <h:outputText value=" #{match.date}"/>
                         </b> 
                         <h:dataTable value="#{match.players}" var="player" class="table-striped">
                             <h:column>
@@ -57,9 +60,12 @@
                                     <f:selectItems value="#{availablePlayersBean.selectItems}" />
                                 </h:selectOneMenu>
                                 <h:commandLink class="btn btn-success" action="#{availablePlayersBean.action}"><i class="icon-user icon-white"></i> Join</h:commandLink>
+                                <a class="btn btn-warning" href="#"><i class="icon-envelope icon-white"></i> Send</a>
+                                <a class="btn btn-danger" href="#"><i class="icon-trash icon-white"></i> Delete</a>
+                                <p:inputTextarea />
+                                
                             </h:form>
-                            <a class="btn btn-warning" href="#"><i class="icon-envelope icon-white"></i> Send</a>
-                            <a class="btn btn-danger" href="#"><i class="icon-trash icon-white"></i> Delete</a>
+
                         </div>
                     </h:column>
                 </h:dataTable>
@@ -67,21 +73,6 @@
 
             <div class="span5">
                 <br/><br/><br/>
-                <h:dataTable value="#{allPlayersBean.allPlayers}" var="player" class="table">
-                    <f:facet name="header">
-                        <h2><h:outputText value="Players" style="color:#f89406"/></h2>
-                    </f:facet>
-                    <h:column>
-                        <i class="icon-user"/>&nbsp;<h:outputText value="#{player.name}" title="#{player.mail}"/>
-                    </h:column> 
-                </h:dataTable>
-                <h:form class="well form-inline">
-                    Name <h:inputText id="name" class="input-small" value="#{allPlayersBean.name}" label="Name"/>
-                    Mail <h:inputText id="mail" class="input-medium" value="#{allPlayersBean.mail}" label="Mail"/>
-                    &nbsp;<h:commandLink class="btn btn-primary" action="#{allPlayersBean.register()}"><i class="icon-user icon-white"></i> Add</h:commandLink>
-                    <h:messages style="color:red" for="name"/>
-                    <h:messages style="color:red" for="mail"/>                    
-                </h:form>
             </div>
         </div>
     </h:body>

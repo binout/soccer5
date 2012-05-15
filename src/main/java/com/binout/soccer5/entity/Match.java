@@ -7,17 +7,32 @@ package com.binout.soccer5.entity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.*;
 
 /**
  *
  * @author benoit
  */
+@Entity
 public class Match {
     
+    @Id
+    @GeneratedValue
+    private Long id;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    
+    @ManyToMany(cascade=CascadeType.ALL)
     private List<Player> players;
 
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     public Date getDate() {
         return date;
     }

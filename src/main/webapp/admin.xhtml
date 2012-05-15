@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+    >
+    <h:head>
+        <title>Soccer5 Administration</title> 
+        <meta name="description" content="Live CI"/> 
+        <link href="./css/bootstrap.css" rel="stylesheet"/> 
+        <link href="./css/bootstrap-responsive.css" rel="stylesheet"/> 
+    </h:head>
+
+    <h:body>
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand">Soccer 5</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li><a href="faces/index.xhtml">Calendar </a></li>
+                            <li class="active"><a>Administration </a></li>
+                        </ul>    
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+
+        <div class="row">
+            <div class="span1">&nbsp;
+            </div>
+
+            <div class="span5">
+                <br/><br/><br/>
+                <h:dataTable value="#{allPlayersBean.allPlayers}" var="player" class="table">
+                    <f:facet name="header">
+                        <h2><h:outputText value="Players" style="color:#f89406"/></h2>
+                        <h:form class="well form-inline">
+                            Name <h:inputText id="name" class="input-small" value="#{allPlayersBean.name}" label="Name"/>
+                            Mail <h:inputText id="mail" class="input-medium" value="#{allPlayersBean.mail}" label="Mail"/>
+                            &nbsp;<h:commandLink class="btn btn-primary" action="#{allPlayersBean.register()}"><i class="icon-user icon-white"></i> Add</h:commandLink>
+                            <h:messages style="color:red" for="name"/>
+                            <h:messages style="color:red" for="mail"/>                    
+                        </h:form>
+                    </f:facet>
+                    <h:column>
+                        <i class="icon-user"/>&nbsp;<h:outputText value="#{player.name}" title="#{player.mail}"/>
+                    </h:column> 
+                </h:dataTable>
+
+            </div>
+            
+            <div class="span6">
+                <br/><br/><br/>
+            </div>
+
+        </div>
+    </h:body>
+
+</html>
+
