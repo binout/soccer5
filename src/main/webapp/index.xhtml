@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.prime.com.tr/ui">
+      xmlns:p="http://primefaces.org/ui">
     >
     <h:head>
         <title>Soccer5 Calendar</title> 
@@ -14,19 +14,21 @@
 
     <h:body>
 
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand">Soccer 5</a>
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li class="active"><a>Calendar </a></li>
-                            <li><a href="faces/admin.xhtml">Administration </a></li>
-                        </ul>    
+        <h:form>
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand">Soccer 5</a>
+                        <div class="nav-collapse">
+                            <ul class="nav">
+                                <li class="active"><a>Calendar </a></li>
+                                <li><h:commandLink action="admin.xhtml">Administration </h:commandLink></li>
+                            </ul>    
+                        </div>
                     </div>
-                </div>
-            </div> 
-        </div>
+                </div> 
+            </div>
+        </h:form>
 
         <div class="row">
             <div class="span1">&nbsp;
@@ -37,9 +39,8 @@
                 <h:dataTable value="#{calendarBean.matches}" var="match" class="table">
                     <f:facet name="header">
                         <h2><h:outputText value="Calendar" style="color:#f89406"/></h2>
-
                         <h:form class="well form-inline">
-                            <p:calendar value="#{calendarBean.newDate}" pattern="MM/dd/yyyy"/> <h:commandLink class="btn btn-primary" ><i class="icon-time icon-white"></i> Add</h:commandLink>
+                            <p:calendar value="#{calendarBean.newDate}" pattern="dd/MM/yyyy HH:mm"/> <h:commandLink class="btn btn-primary" ><i class="icon-time icon-white"></i> Add</h:commandLink>
                         </h:form>
                     </f:facet> 
                     <h:column>
@@ -54,19 +55,16 @@
                                 <i class="icon-minus"></i>
                             </h:column> 
                         </h:dataTable>
-                        <div class="well form-inline">
-                            <h:form rendered="#{match.open}" >
-                                <h:selectOneMenu value="#{availablePlayersBean.selectedItem}">
+                        <h:form rendered="#{match.open}" >
+                            <div class="well form-inline">
+                               <h:selectOneMenu value="#{availablePlayersBean.selectedItem}">
                                     <f:selectItems value="#{availablePlayersBean.selectItems}" />
-                                </h:selectOneMenu>
-                                <h:commandLink class="btn btn-success" action="#{availablePlayersBean.action}"><i class="icon-user icon-white"></i> Join</h:commandLink>
-                                <a class="btn btn-warning" href="#"><i class="icon-envelope icon-white"></i> Send</a>
-                                <a class="btn btn-danger" href="#"><i class="icon-trash icon-white"></i> Delete</a>
-                                <p:inputTextarea />
-                                
-                            </h:form>
-
-                        </div>
+                                </h:selectOneMenu>&nbsp;
+                                <h:commandLink class="btn btn-success" action="#{availablePlayersBean.action}"><i class="icon-user icon-white"></i> Join</h:commandLink><br/><br/>
+                                <!--<a class="btn btn-danger" href="#"><i class="icon-trash icon-white"></i> Delete</a>-->
+                                <p:inputTextarea title="Message" />&nbsp;<a class="btn btn-warning" href="#"><i class="icon-envelope icon-white"></i> Send</a>
+                            </div>
+                        </h:form>
                     </h:column>
                 </h:dataTable>
             </div>
