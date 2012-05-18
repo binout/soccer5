@@ -13,22 +13,30 @@
     </h:head>
 
     <h:body>
-
         <h:form>
-            <div class="navbar navbar-fixed-top">
-                <div class="navbar-inner">
-                    <div class="container">
-                        <a class="brand">Soccer 5</a>
-                        <div class="nav-collapse">
-                            <ul class="nav">
-                                <li class="active"><a>Calendar </a></li>
-                                <li><h:commandLink action="admin.xhtml">Administration </h:commandLink></li>
-                            </ul>    
-                        </div>
-                    </div>
-                </div> 
-            </div>
+            <p:dialog header="Administration access" widgetVar="login" modal="true" resizable="false">
+                Login&nbsp;<h:inputText value="#{loginBean.login}" label="login" /><br/>
+                Pass&nbsp;&nbsp;<p:password  value="#{loginBean.password}" label="password"/><br/><br/>
+                <div align="center">
+                    <h:commandLink class="btn" value="Enter" action="#{loginBean.checkCredential()}" />
+                </div>
+            </p:dialog>
         </h:form>
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand">Soccer 5</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="active"><a>Calendar </a></li>
+                            <li><a onclick="login.show()">Administration </a></li>
+                        </ul>    
+                    </div>
+                </div>
+            </div> 
+        </div>
+
 
         <div class="row">
             <div class="span1">&nbsp;
@@ -40,12 +48,12 @@
                     <f:facet name="header">
                         <h2><h:outputText value="Calendar" style="color:#f89406"/></h2>
                         <h:form class="well form-inline">
-                            <p:calendar value="#{calendarBean.newDate}" pattern="dd/MM/yyyy HH:mm"/> <h:commandLink class="btn btn-primary" ><i class="icon-time icon-white"></i> Add</h:commandLink>
+                            <p:calendar value="#{calendarBean.newDate}" pattern="dd/MM/yyyy HH:mm"/> <h:commandLink class="btn btn-primary" action="#{calendarBean.register()}"><i class="icon-time icon-white"></i> Add</h:commandLink>
                         </h:form>
                     </f:facet> 
                     <h:column>
-                        <b>Match (<h:outputText value="#{match.players.size()}"/>/10) <i class="icon-time"/>
-                            <h:outputText value=" #{match.date}"/>
+                        <b>Match (<h:outputText value="#{match.players.size()}"/>/10) <i class="icon-time"/><br/>
+                            <h:outputText value="#{match.date}"/>
                         </b> 
                         <h:dataTable value="#{match.players}" var="player" class="table-striped">
                             <h:column>
@@ -57,10 +65,10 @@
                         </h:dataTable>
                         <h:form rendered="#{match.open}" >
                             <div class="well form-inline">
-                               <h:selectOneMenu value="#{availablePlayersBean.selectedItem}">
+                                <h:selectOneMenu value="#{availablePlayersBean.selectedItem}">
                                     <f:selectItems value="#{availablePlayersBean.selectItems}" />
                                 </h:selectOneMenu>&nbsp;
-                                <h:commandLink class="btn btn-success" action="#{availablePlayersBean.action}"><i class="icon-user icon-white"></i> Join</h:commandLink><br/><br/>
+                                <h:commandLink class="btn btn-success" action="#{availablePlayersBean.join(match)}"><i class="icon-user icon-white"></i> Join</h:commandLink><br/><br/>
                                 <!--<a class="btn btn-danger" href="#"><i class="icon-trash icon-white"></i> Delete</a>-->
                                 <p:inputTextarea title="Message" />&nbsp;<a class="btn btn-warning" href="#"><i class="icon-envelope icon-white"></i> Send</a>
                             </div>

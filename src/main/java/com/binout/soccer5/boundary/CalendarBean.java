@@ -4,9 +4,11 @@
  */
 package com.binout.soccer5.boundary;
 
+import com.binout.soccer5.controller.MatchEJB;
 import com.binout.soccer5.controller.PlayerEJB;
 import com.binout.soccer5.entity.Match;
 import com.binout.soccer5.entity.Player;
+import com.google.common.base.Strings;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,11 +26,7 @@ public class CalendarBean {
     private Date newDate;
     
     @Inject
-    private PlayerEJB ejb;
-    
-    public List<Player> getPlayers() {
-        return ejb.listPlayers();
-    }
+    private MatchEJB ejb;
 
     public Date getNewDate() {
         return newDate;
@@ -39,31 +37,15 @@ public class CalendarBean {
     }
 
     public List<Match> getMatches() {
-        List<Match> matches = new ArrayList<Match>();
-        matches.add(newMatch(6));
-        matches.add(newMatch(5));
-        matches.add(newMatch(9));
-        matches.add(newMatch(10));
-        matches.add(newMatch(10));
-        matches.add(newMatch(10));
-
-        return matches;
+        return ejb.listMatches();
     }
-
-    private Match newMatch(int nbPlayer) {
-        Match m = new Match();
-        m.setDate(new Date());
-        for (int i=0; i<nbPlayer; i++) {
-            m.addPlayer(newPlayer());
+    
+     public void register() throws Exception {
+        if (newDate != null) {
+            Match m = new Match();
+            m.setDate(newDate);
+            ejb.registerMatch(m);
         }
-        return m;
-    }
-
-    private Player newPlayer() {
-        Player p = new Player();
-        String name = "toto" + new Random().nextInt();
-        p.setName(name);
-        p.setMail(name + "@gmail.com");
-        return p ;
+        newDate = null;
     }
 }

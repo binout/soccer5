@@ -14,14 +14,23 @@ import javax.persistence.*;
  * @author benoit
  */
 @Entity
+@Table(name="RMATCH")
+@NamedQueries({
+    @NamedQuery(name = Match.FIND_ALL,
+    query = "SELECT m FROM Match m order by m.date desc"),
+    @NamedQuery(name = Match.FIND_BY_DATE,
+    query = "SELECT m FROM Match m where m.date=:date")
+})
 public class Match {
     
+    public final static String FIND_ALL = "match.findAll";
+    public final static String FIND_BY_DATE = "match.findByDate";
     @Id
     @GeneratedValue
     private Long id;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade=CascadeType.DETACH)
     private List<Player> players;
 
     
