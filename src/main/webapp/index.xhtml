@@ -23,6 +23,7 @@
             </p:dialog>
         </h:form>
 
+        <h:form rendered="#{loginBean.notLoggedIn}">
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -36,7 +37,23 @@
                 </div>
             </div> 
         </div>
-
+        </h:form>
+        
+        <h:form rendered="#{loginBean.loggedIn}">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand">Soccer 5</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="active"><a>Calendar </a></li>
+                            <li><h:commandLink action="admin.xhtml">Administration </h:commandLink></li>
+                        </ul>    
+                    </div>
+                </div>
+            </div> 
+        </div>
+        </h:form>
 
         <div class="row">
             <div class="span1">&nbsp;
@@ -48,7 +65,7 @@
                     <f:facet name="header">
                         <h2><h:outputText value="Calendar" style="color:#f89406"/></h2>
                         <h:form class="well form-inline">
-                            <p:calendar value="#{calendarBean.newDate}" pattern="dd/MM/yyyy HH:mm"/> <h:commandLink class="btn btn-primary" action="#{calendarBean.register()}"><i class="icon-time icon-white"></i> Add</h:commandLink>
+                            <p:calendar value="#{calendarBean.newDate}" pattern="dd/MM/yyyy HH:mm"/>&nbsp;<h:commandLink class="btn btn-primary" action="#{calendarBean.register()}"><i class="icon-time icon-white"></i> Add</h:commandLink>
                         </h:form>
                     </f:facet> 
                     <h:column>
@@ -65,10 +82,10 @@
                         </h:dataTable>
                         <h:form rendered="#{match.open}" >
                             <div class="well form-inline">
-                                <h:selectOneMenu value="#{availablePlayersBean.selectedItem}">
-                                    <f:selectItems value="#{availablePlayersBean.selectItems}" />
-                                </h:selectOneMenu>&nbsp;
-                                <h:commandLink class="btn btn-success" action="#{availablePlayersBean.join(match)}"><i class="icon-user icon-white"></i> Join</h:commandLink><br/><br/>
+                                <p:autoComplete value="#{joinBean.selectedPlayer}" completeMethod="#{joinBean.complete}"
+                                                var="player" itemLabel="#{player.name}" itemValue="#{player}" converter="#{playerConverter}"/>&nbsp;
+                                <h:commandLink class="btn btn-success" action="#{joinBean.join(match)}"><i class="icon-user icon-white"></i> Join</h:commandLink><br/><br/>
+                                <h:messages style="color:red"/>
                                 <!--<a class="btn btn-danger" href="#"><i class="icon-trash icon-white"></i> Delete</a>-->
                                 <p:inputTextarea title="Message" />&nbsp;<a class="btn btn-warning" href="#"><i class="icon-envelope icon-white"></i> Send</a>
                             </div>

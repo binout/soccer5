@@ -20,6 +20,17 @@ public class PlayerEJB {
         em.remove(p);
     }
 
+    public Player findPLlayer(String name) {               
+        TypedQuery<Player> query = em.createNamedQuery(Player.FIND_BY_NAME, Player.class);
+        query.setParameter("name", name);
+        List<Player> existing = query.getResultList();
+        if (existing.isEmpty()) {
+            return null;
+        } else {
+            return existing.get(0);
+        }
+    }
+    
     public void registerPlayer(Player p) {               
         TypedQuery<Player> query = em.createNamedQuery(Player.FIND_BY_NAME, Player.class);
         query.setParameter("name", p.getName());

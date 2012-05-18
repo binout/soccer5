@@ -4,7 +4,10 @@
  */
 package com.binout.soccer5.boundary;
 
+import com.binout.soccer5.boundary.filter.AuthenticationFilter;
 import javax.enterprise.inject.Model;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -12,7 +15,7 @@ import javax.enterprise.inject.Model;
  */
 @Model
 public class LoginBean {
- 
+    
     private String login;
     private String password;
 
@@ -36,11 +39,20 @@ public class LoginBean {
         boolean logged = "root".equals(login) && "lectra".equals(password);
         String redirect = "index.xhtml";
         if (logged) {
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AuthenticationFilter.AUTH_KEY, login);
             redirect = "admin.xhtml";
         }
         login = null;
         password = null;
         return redirect;
+    }
+    
+    public boolean isLoggedIn() {
+        return FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(AuthenticationFilter.AUTH_KEY) != null;
+    }
+    
+    public boolean isNotLoggedIn() {
+        return !isLoggedIn();
     }
     
 }

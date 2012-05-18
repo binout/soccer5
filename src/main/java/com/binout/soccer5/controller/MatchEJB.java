@@ -36,8 +36,8 @@ public class MatchEJB {
     }
     
     public void registerPlayerToMatch(Match m, Player p) {
-        em.merge(m);
-        em.merge(p);
-        m.addPlayer(p);
+        Match match = em.merge(m);
+        Player player = em.merge(p);
+        match.addPlayer(player);
     }
 }
