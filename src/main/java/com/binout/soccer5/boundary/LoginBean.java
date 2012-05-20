@@ -6,7 +6,6 @@ package com.binout.soccer5.boundary;
 
 import com.binout.soccer5.boundary.filter.AuthenticationFilter;
 import javax.enterprise.inject.Model;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.context.FacesContext;
 
 /**

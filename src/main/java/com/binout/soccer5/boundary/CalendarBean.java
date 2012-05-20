@@ -5,14 +5,9 @@
 package com.binout.soccer5.boundary;
 
 import com.binout.soccer5.controller.MatchEJB;
-import com.binout.soccer5.controller.PlayerEJB;
 import com.binout.soccer5.entity.Match;
-import com.binout.soccer5.entity.Player;
-import com.google.common.base.Strings;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 

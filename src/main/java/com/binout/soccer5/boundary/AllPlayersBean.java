@@ -9,7 +9,6 @@ import com.binout.soccer5.controller.PlayerEJB;
 import com.binout.soccer5.entity.Player;
 
 import com.google.common.base.Strings;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Model
