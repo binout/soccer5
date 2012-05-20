@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
  * @author benoit
  */
 @Entity
+@Table(name="RPLAYER")
 @NamedQueries({
     @NamedQuery(name = Player.FIND_ALL,
     query = "SELECT p FROM Player p order by p.id"),
