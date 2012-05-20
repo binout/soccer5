@@ -40,4 +40,10 @@ public class MatchEJB {
         Player player = em.merge(p);
         match.addPlayer(player);
     }
+    
+    public void unregisterPlayerToMatch(Match m, Player p) {
+        Match match = em.merge(m);
+        Player player = em.merge(p);
+        match.removePlayer(player);
+    }
 }

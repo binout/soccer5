@@ -34,13 +34,13 @@
             <div class="span1">&nbsp;
             </div>
 
-            <div class="span5">
+            <div class="span6">
                 <br/><br/><br/>
                 <h:dataTable value="#{allPlayersBean.allPlayers}" var="player" class="table">
                     <f:facet name="header">
                         <h2><h:outputText value="Players" style="color:#f89406"/></h2>
                         <h:form class="well form-inline">
-                            Name <h:inputText id="name" class="input-small" value="#{allPlayersBean.name}" label="Name"/>
+                            Name <h:inputText id="name" class="input-medium" value="#{allPlayersBean.name}" label="Name"/>
                             Mail <h:inputText id="mail" class="input-medium" value="#{allPlayersBean.mail}" label="Mail"/>
                             &nbsp;<h:commandLink class="btn btn-primary" action="#{allPlayersBean.register()}"><i class="icon-user icon-white"></i> Add</h:commandLink>
                             <h:messages style="color:red" for="name"/>
@@ -48,13 +48,16 @@
                         </h:form>
                     </f:facet>
                     <h:column>
-                        <i class="icon-user"/>&nbsp;<h:outputText value="#{player.name}" title="#{player.mail}"/>
+                        <i class="icon-user"/>&nbsp;<h:outputText value="#{player.name}"/>
+                    </h:column> 
+                    <h:column>
+                        <i class="icon-envelope"/>&nbsp;<h:outputText value="#{player.mail}"/>
                     </h:column> 
                 </h:dataTable>
 
             </div>
             
-            <div class="span6">
+            <div class="span5">
                 <br/><br/><br/>
             </div>
 

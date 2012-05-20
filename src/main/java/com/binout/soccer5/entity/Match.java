@@ -61,6 +61,12 @@ public class Match {
         players.add(p);
     }
     
+    public void removePlayer(Player p) {
+        if (players!=null) {
+            players.remove(p);
+        } 
+    }
+    
     public void setPlayers(List<Player> players) {
         this.players = players;
     }
