@@ -20,7 +20,7 @@ public class PlayerEJB {
         em.remove(p);
     }
 
-    public Player findPLlayer(String name) {               
+    public Player findPlayer(String name) {               
         TypedQuery<Player> query = em.createNamedQuery(Player.FIND_BY_NAME, Player.class);
         query.setParameter("name", name);
         List<Player> existing = query.getResultList();

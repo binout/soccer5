@@ -24,7 +24,7 @@ public class PlayerConverter implements Converter{
     
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        return playerEjb.findPLlayer(value);
+        return playerEjb.findPlayer(value);
     }
 
     @Override

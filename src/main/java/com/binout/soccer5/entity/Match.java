@@ -30,7 +30,7 @@ public class Match {
     private Long id;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    @ManyToMany(cascade=CascadeType.DETACH)
+    @ManyToMany(cascade=CascadeType.DETACH, fetch= FetchType.EAGER)
     private List<Player> players;
 
     
