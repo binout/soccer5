@@ -34,7 +34,7 @@
                             <li><a onclick="login.show()">Administration </a></li>
                         </ul>    
                     </div>
-                    <div align="right">Version 0.2-SNAPSHOT</div>
+                    <div align="right">Version 0.1.1</div>
                 </div>
             </div>                             
         </div>
@@ -51,7 +51,7 @@
                             <li><h:commandLink action="admin.xhtml">Administration </h:commandLink></li>
                         </ul>    
                     </div>
-                    <div align="right">Version 0.2-SNAPSHOT</div>
+                    <div align="right">Version 0.1.1</div>
                 </div>
             </div> 
         </div>
@@ -73,7 +73,7 @@
                     <h:column>
                         <b>Match (<h:outputText value="#{match.players.size()}"/>/10) <i class="icon-time"/><br/>
                             <h:outputText value="#{match.date}">
-                                <f:convertDateTime pattern="E dd/MM/yyyy HH:mm" />
+                                <!--<f:convertDateTime type="date" timeZone="Europe/Paris" pattern="E dd/MM/yyyy HH:mm" />-->
                             </h:outputText>
                         </b> 
                         <h:dataTable value="#{match.players}" var="player" class="table-striped">
