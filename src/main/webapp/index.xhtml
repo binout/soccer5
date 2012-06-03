@@ -4,7 +4,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    >
+
     <h:head>
         <title>Soccer5 Calendar</title> 
         <meta name="description" content="Live CI"/> 
@@ -24,37 +24,37 @@
         </h:form>
 
         <h:form rendered="#{loginBean.notLoggedIn}">
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand">Soccer 5</a>
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li class="active"><a>Calendar </a></li>
-                            <li><a onclick="login.show()">Administration </a></li>
-                        </ul>    
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand">Soccer 5</a>
+                        <div class="nav-collapse">
+                            <ul class="nav">
+                                <li class="active"><a>Calendar </a></li>
+                                <li><a onclick="login.show()">Administration </a></li>
+                            </ul>    
+                        </div>
+                        <div align="right">Version 0.2</div>
                     </div>
-                    <div align="right">Version 0.1.1</div>
-                </div>
-            </div>                             
-        </div>
+                </div>                             
+            </div>
         </h:form>
-        
+
         <h:form rendered="#{loginBean.loggedIn}">
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand">Soccer 5</a>
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li class="active"><a>Calendar </a></li>
-                            <li><h:commandLink action="admin.xhtml">Administration </h:commandLink></li>
-                        </ul>    
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand">Soccer 5</a>
+                        <div class="nav-collapse">
+                            <ul class="nav">
+                                <li class="active"><a>Calendar </a></li>
+                                <li><h:commandLink action="admin.xhtml">Administration </h:commandLink></li>
+                            </ul>    
+                        </div>
+                        <div align="right">Version 0.2</div>
                     </div>
-                    <div align="right">Version 0.1.1</div>
-                </div>
-            </div> 
-        </div>
+                </div> 
+            </div>
         </h:form>
 
         <div class="row">
@@ -63,46 +63,47 @@
 
             <div class="span6">
                 <br/><br/><br/>
-                <h:dataTable value="#{calendarBean.matches}" var="match" class="table">
-                    <f:facet name="header">
-                        <h2><h:outputText value="Calendar" style="color:#f89406"/></h2>
-                        <h:form class="well form-inline">
-                            <p:calendar value="#{calendarBean.newDate}" pattern="dd/MM/yyyy HH:mm"/>&nbsp;<h:commandLink class="btn btn-primary" action="#{calendarBean.register()}"><i class="icon-time icon-white"></i> Add</h:commandLink>
-                        </h:form>
-                    </f:facet> 
-                    <h:column>
-                        <b>Match (<h:outputText value="#{match.players.size()}"/>/10) <i class="icon-time"/><br/>
-                            <h:outputText value="#{match.date}">
-                                <!--<f:convertDateTime type="date" timeZone="Europe/Paris" pattern="E dd/MM/yyyy HH:mm" />-->
-                            </h:outputText>
-                        </b> 
-                        <h:dataTable value="#{match.players}" var="player" class="table-striped">
-                            <h:column>
-                                <i class="icon-user"/> <h:outputText value="#{player.name}"/>
-                            </h:column> 
-                            <h:column>
-                                <h:form>
-                                    <h:commandLink action="#{matchBean.remove(match, player)}"><i class="icon-minus"></i></h:commandLink>
-                                </h:form>
-                            </h:column> 
-                        </h:dataTable>
-                        <h:form rendered="#{match.open}" >
-                            <div class="well form-inline">
-                                <p:autoComplete value="#{joinBean.selectedPlayer}" completeMethod="#{joinBean.complete}"
-                                                var="player" itemLabel="#{player.name}" itemValue="#{player}" converter="#{playerConverter}"/>&nbsp;
-                                <h:commandLink class="btn btn-success" action="#{joinBean.join(match)}"><i class="icon-user icon-white"></i> Join</h:commandLink><br/><br/>
-                                <h:messages style="color:red"/>
-                            </div>
-                        </h:form>
-                    </h:column>
-                </h:dataTable>
+                <h2><h:outputText value="Calendar" style="color:#f89406"/></h2>
+                <h:form class="well form-inline">
+                    <p:calendar value="#{calendarBean.newDate}" pattern="dd/MM/yyyy HH:mm"  stepMinute="15" minHour="19" mindate="#{calendarBean.minDate}"/>&nbsp;
+                    <h:commandLink class="btn btn-primary" action="#{calendarBean.register()}"><i class="icon-time icon-white"></i> Add</h:commandLink>
+                </h:form>
+
+                <p:schedule value="#{scheduleBean.schedule}" leftHeaderTemplate="today" rightHeaderTemplate="prev,next">
+                </p:schedule>
+
             </div>
 
             <div class="span5">
                 <br/><br/><br/>
+                <h2><h:outputText value="Match" style="color:#f89406"/></h2>
+                <br/>
+                <b>Match (<h:outputText value="#{calendarBean.currentMatch.players.size()}"/>/10)<br/>
+                    <i class="icon-time"/><h:outputText value="#{calendarBean.currentMatch.date}">
+                        <f:convertDateTime type="date" timeZone="Europe/Paris" pattern="E dd/MM/yyyy HH:mm" />
+                    </h:outputText>
+                </b> 
+                <h:dataTable value="#{calendarBean.currentMatch.players}" var="player" class="table-striped">
+                    <h:column>
+                        <i class="icon-user"/> <h:outputText value="#{player.name}"/>
+                    </h:column> 
+                    <h:column>
+                        <h:form>
+                            <h:commandLink action="#{matchBean.remove(match, player)}"><i class="icon-minus"></i></h:commandLink>
+                        </h:form>
+                    </h:column> 
+                </h:dataTable>
+                <h:form rendered="#{calendarBean.currentMatch.open}" >
+                    <div class="well form-inline">
+                        <p:autoComplete value="#{joinBean.selectedPlayer}" completeMethod="#{joinBean.complete}"
+                                        var="player" itemLabel="#{player.name}" itemValue="#{player}" converter="#{playerConverter}"/>&nbsp;
+                        <h:commandLink class="btn btn-success" action="#{joinBean.join(calendarBean.currentMatch)}"><i class="icon-user icon-white"></i> Join</h:commandLink><br/><br/>
+                        <h:messages style="color:red"/>
+                    </div>
+                </h:form>
             </div>
         </div>
-        
+
     </h:body>
 
 </html>

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+import org.joda.time.DateTime;
 
 /**
  *
@@ -19,20 +20,33 @@ import javax.persistence.*;
     @NamedQuery(name = Match.FIND_ALL,
     query = "SELECT m FROM Match m order by m.date desc"),
     @NamedQuery(name = Match.FIND_BY_DATE,
-    query = "SELECT m FROM Match m where m.date=:date")
+    query = "SELECT m FROM Match m where m.date=:date"),
+    @NamedQuery(name = Match.FIND_NEXT_MATCH,
+    query = "SELECT m "
+        + "FROM Match m "
+        + "where m.date="
+        + "(select min(m2.date)"
+        + " from Match m2"
+        + " where m2.date > :today)")
 })
 public class Match {
     
     public final static String FIND_ALL = "match.findAll";
     public final static String FIND_BY_DATE = "match.findByDate";
+    public final static String FIND_NEXT_MATCH = "match.findNextMatch";
+
     @Id
     @GeneratedValue
     private Long id;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
+    
     @ManyToMany(cascade=CascadeType.DETACH, fetch= FetchType.EAGER)
     private List<Player> players;
-
+    
+    @ManyToMany(cascade=CascadeType.ALL, fetch= FetchType.EAGER)
+    private List<Guest> guests;
+    
     
     public Long getId() {
         return id;
@@ -48,6 +62,12 @@ public class Match {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+    
+    public Date getEndDate() {
+        DateTime dt = new DateTime(date);
+        dt.plusHours(2);
+        return dt.toDate();
     }
 
     public List<Player> getPlayers() {
@@ -70,9 +90,38 @@ public class Match {
     public void setPlayers(List<Player> players) {
         this.players = players;
     }
+
+    public int getNbPlayers() {
+        return players == null ? 0 : players.size();
+    }
+    
+    public List<Guest> getGuests() {
+        return guests;
+    }
+
+     public void addGuest(Guest p) {
+        if (guests==null) {
+            guests = new ArrayList<Guest>();
+        }
+        guests.add(p);
+    }
+    
+    public void removeGuest(Guest p) {
+        if (guests!=null) {
+            guests.remove(p);
+        } 
+    }
+    
+    public void setGuests(List<Guest> guests) {
+        this.guests = guests;
+    }
+    
+    public int getNbGuests() {
+        return guests == null ? 0 : guests.size();
+    }
     
     public boolean isFull() {
-        return players == null ? false : 10 == players.size();
+        return 10 == (getNbGuests() + getNbPlayers());
     }
     
     public boolean isOpen() {
