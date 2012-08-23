@@ -76,31 +76,49 @@
 
             <div class="span5">
                 <br/><br/><br/>
-                <h2><h:outputText value="Match" style="color:#f89406"/></h2>
-                <br/>
-                <b>Match (<h:outputText value="#{calendarBean.currentMatch.players.size()}"/>/10)<br/>
-                    <i class="icon-time"/><h:outputText value="#{calendarBean.currentMatch.date}">
-                        <f:convertDateTime type="date" timeZone="Europe/Paris" pattern="E dd/MM/yyyy HH:mm" />
-                    </h:outputText>
-                </b> 
-                <h:dataTable value="#{calendarBean.currentMatch.players}" var="player" class="table-striped">
+                <h2><h:outputText value="Next Matches" style="color:#f89406"/></h2>
+                <h:dataTable value="#{calendarBean.matches}" var="match" class="table-striped">
                     <h:column>
-                        <i class="icon-user"/> <h:outputText value="#{player.name}"/>
-                    </h:column> 
-                    <h:column>
-                        <h:form>
-                            <h:commandLink action="#{matchBean.remove(match, player)}"><i class="icon-minus"></i></h:commandLink>
+                        <br/>
+                        <b>Match (<h:outputText value="#{match.nbPlayersAndGuests}"/>/10)<br/>
+                            <i class="icon-time"/><h:outputText value="#{match.date}">
+                                <f:convertDateTime type="date" timeZone="Europe/Paris" pattern="E dd/MM/yyyy HH:mm" />
+                            </h:outputText>
+                        </b> 
+                        <!-- List of players -->
+                        <h:dataTable value="#{match.players}" var="player" class="table-striped">
+                            <h:column>
+                                <i class="icon-user"/> <h:outputText value="#{player.name}"/>
+                            </h:column> 
+                            <h:column>
+                                <h:form>
+                                    <h:commandLink action="#{calendarBean.removePlayer(match, player)}"><i class="icon-minus"></i></h:commandLink>
+                                </h:form>
+                            </h:column> 
+                        </h:dataTable>
+                        <!-- List of guest -->
+                        <h:dataTable value="#{match.guests.toArray()}" var="guest" class="table-striped">
+                            <h:column>
+                                <i class="icon-question-sign"/> <h:outputText value="#{guest}"/>
+                            </h:column> 
+                            <h:column>
+                                <h:form>
+                                    <h:commandLink action="#{calendarBean.removeGuest(match, guest)}"><i class="icon-minus"></i></h:commandLink>
+                                </h:form>
+                            </h:column> 
+                        </h:dataTable>                        
+                        <h:form rendered="#{match.open}" >
+                            <div class="well form-inline">
+                                <p:autoComplete value="#{calendarBean.selectedPlayer}" completeMethod="#{calendarBean.complete}"
+                                                var="player" itemLabel="#{player.name}" itemValue="#{player}" converter="#{playerConverter}"/>&nbsp;
+                                <h:commandLink class="btn btn-inverse" action="#{calendarBean.join(match)}"><i class="icon-user icon-white"></i> Join</h:commandLink><br/><br/>
+                                <h:messages style="color:red"/>
+                                <p:inputText value="#{calendarBean.guest}"/>&nbsp;
+                                <h:commandLink class="btn btn-warning" action="#{calendarBean.addGuest(match)}"><i class="icon-question-sign icon-white"></i> Guest</h:commandLink><br/><br/>
+                            </div>
                         </h:form>
-                    </h:column> 
+                    </h:column>
                 </h:dataTable>
-                <h:form rendered="#{calendarBean.currentMatch.open}" >
-                    <div class="well form-inline">
-                        <p:autoComplete value="#{joinBean.selectedPlayer}" completeMethod="#{joinBean.complete}"
-                                        var="player" itemLabel="#{player.name}" itemValue="#{player}" converter="#{playerConverter}"/>&nbsp;
-                        <h:commandLink class="btn btn-success" action="#{joinBean.join(calendarBean.currentMatch)}"><i class="icon-user icon-white"></i> Join</h:commandLink><br/><br/>
-                        <h:messages style="color:red"/>
-                    </div>
-                </h:form>
             </div>
         </div>
 

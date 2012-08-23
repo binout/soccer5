@@ -58,20 +58,27 @@ public class MatchEJB {
         match.addPlayer(player);
     }
     
+    public void registerGuestToMatch(Match m, String guest) {
+        Match match = em.merge(m);
+        if (!match.getGuests().contains(guest)) {
+            match.addGuest(guest);
+        }
+    }
+    
+    public void unregisterGuestToMatch(Match m, String guest) {
+        Match match = em.merge(m);
+        match.removeGuest(guest);
+    }
+    
     public void unregisterPlayerToMatch(Match m, Player p) {
         Match match = em.merge(m);
         Player player = em.merge(p);
         match.removePlayer(player);
     }
     
-    public Match getNextMatch() {
-        TypedQuery<Match> query = em.createNamedQuery(Match.FIND_NEXT_MATCH, Match.class);
+    public List<Match> getNextMatches() {
+        TypedQuery<Match> query = em.createNamedQuery(Match.FIND_NEXT_MATCHES, Match.class);
         query.setParameter("today", new Date());
-        try {
-            return query.getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-
+        return query.getResultList();
     }
 }

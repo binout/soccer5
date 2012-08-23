@@ -6,7 +6,9 @@ package com.binout.soccer5.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.*;
 import org.joda.time.DateTime;
 
@@ -21,19 +23,16 @@ import org.joda.time.DateTime;
     query = "SELECT m FROM Match m order by m.date desc"),
     @NamedQuery(name = Match.FIND_BY_DATE,
     query = "SELECT m FROM Match m where m.date=:date"),
-    @NamedQuery(name = Match.FIND_NEXT_MATCH,
+    @NamedQuery(name = Match.FIND_NEXT_MATCHES,
     query = "SELECT m "
         + "FROM Match m "
-        + "where m.date="
-        + "(select min(m2.date)"
-        + " from Match m2"
-        + " where m2.date > :today)")
+        + "where m.date >= :today order by m.date asc")
 })
 public class Match {
     
     public final static String FIND_ALL = "match.findAll";
     public final static String FIND_BY_DATE = "match.findByDate";
-    public final static String FIND_NEXT_MATCH = "match.findNextMatch";
+    public final static String FIND_NEXT_MATCHES = "match.findNextMatches";
 
     @Id
     @GeneratedValue
@@ -44,9 +43,8 @@ public class Match {
     @ManyToMany(cascade=CascadeType.DETACH, fetch= FetchType.EAGER)
     private List<Player> players;
     
-    @ManyToMany(cascade=CascadeType.ALL, fetch= FetchType.EAGER)
-    private List<Guest> guests;
-    
+    @ElementCollection(fetch= FetchType.EAGER)
+    private Set<String> guests;    
     
     public Long getId() {
         return id;
@@ -95,24 +93,29 @@ public class Match {
         return players == null ? 0 : players.size();
     }
     
-    public List<Guest> getGuests() {
+    public int getNbPlayersAndGuests() {
+        return getNbPlayers() + getNbGuests();
+    }
+    
+    
+    public Set<String> getGuests() {
         return guests;
     }
 
-     public void addGuest(Guest p) {
+     public void addGuest(String p) {
         if (guests==null) {
-            guests = new ArrayList<Guest>();
+            guests = new HashSet<String>();
         }
         guests.add(p);
     }
     
-    public void removeGuest(Guest p) {
+    public void removeGuest(String p) {
         if (guests!=null) {
             guests.remove(p);
         } 
     }
     
-    public void setGuests(List<Guest> guests) {
+    public void setGuests(Set<String> guests) {
         this.guests = guests;
     }
     
