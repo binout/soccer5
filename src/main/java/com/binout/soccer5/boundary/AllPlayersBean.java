@@ -64,6 +64,9 @@ public class AllPlayersBean {
         createPlayer("Adrien Gaboriaud", "adriengaboriaud@gmail.com");
         createPlayer("Xavier Germond", "xavier_germond@hotmail.com");
         createPlayer("Mikael Bazin", "mulderf@free.fr");
+        createPlayer("Arnaud Balourdet", "arnaud.balourdet@laposte.net");
+        createPlayer("Bogdan Ghita", "bogdanght@yahoo.fr");
+        createPlayer("Jonathan Carre", "jonathan_carre@me.com");
     }
 
     private void createPlayer(String name, String mail) {
