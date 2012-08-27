@@ -14,6 +14,8 @@
     </h:head>
 
     <h:body>
+        <p:growl id="growl" showDetail="true" sticky="true" />  
+
         <h:form>
             <p:dialog header="Administration access" widgetVar="login" modal="true" resizable="false">
                 Login&nbsp;<h:inputText value="#{loginBean.login}" label="login" /><br/>
@@ -67,12 +69,10 @@
                 <h2><h:outputText value="Calendar" style="color:#f89406"/></h2>
                 <h:form class="well form-inline" rendered="#{loginBean.loggedIn}">
                     <p:calendar value="#{calendarBean.newDate}" pattern="dd/MM/yyyy HH:mm"  stepMinute="15" minHour="19" mindate="#{calendarBean.minDate}"/>&nbsp;
-                    <h:commandLink class="btn btn-primary" action="#{calendarBean.register()}"><i class="icon-time icon-white"></i> Add</h:commandLink>
+                    <h:commandLink class="btn btn-primary" action="#{calendarBean.register()}" actionListener="#{calendarBean.growlNewMatch}" update="growl"><i class="icon-time icon-white"></i> Add</h:commandLink>
                 </h:form>
 
-                <p:schedule value="#{scheduleBean.schedule}" leftHeaderTemplate="today" rightHeaderTemplate="prev,next">
-                </p:schedule>
-
+                <p:schedule value="#{scheduleBean.schedule}" leftHeaderTemplate="today" rightHeaderTemplate="prev,next"/>
             </div>
 
             <div class="span4">
@@ -111,12 +111,12 @@
                                 </h:form>
                             </h:column> 
                         </h:dataTable>                        
-                        <h:form rendered="#{match.open}" >
+                        <h:form id="addPlayerAndGuest" rendered="#{match.open}" >
                             <div class="well form-inline">
                                 <p:autoComplete value="#{calendarBean.selectedPlayer}" completeMethod="#{calendarBean.complete}"
                                                 var="player" itemLabel="#{player.name}" itemValue="#{player}" converter="#{playerConverter}"/>&nbsp;
                                 <h:commandLink class="btn btn-inverse" action="#{calendarBean.join(match)}"><i class="icon-user icon-white"></i> Join</h:commandLink><br/><br/>
-                                <h:messages style="color:red"/>
+                                <h:message for="addPlayerAndGuest" style="color:red"/>
                                 <p:inputText value="#{calendarBean.guest}"/>&nbsp;
                                 <h:commandLink class="btn btn-warning" action="#{calendarBean.addGuest(match)}"><i class="icon-question-sign icon-white"></i> Guest</h:commandLink><br/><br/>
                             </div>

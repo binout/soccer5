@@ -15,6 +15,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 
 /**
@@ -65,6 +66,12 @@ public class CalendarBean {
         newDate = null;
     }
     
+    public void growlNewMatch(ActionEvent actionEvent) {
+        if (newDate != null) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Successful", "Add new match at " + newDate));
+        }
+    }
 
     public Player getSelectedPlayer() {
         return selectedPlayer;
@@ -83,7 +90,7 @@ public class CalendarBean {
             matchEjb.registerPlayerToMatch(m, selectedPlayer);
             initNextMatches();
         } else {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Unkonwn Player", "Unkonwn Player");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Unknown Player", "Choose an existing player");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
         selectedPlayer = null;
