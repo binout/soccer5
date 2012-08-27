@@ -33,9 +33,9 @@ public class MatchEJB {
         }
     }
     
-    public void removeMatch(Long id) {
-        Match p = em.find(Match.class, id);
-        em.remove(p);
+    public void removeMatch(Match m) {
+        Match match = em.merge(m);
+        em.remove(match);
     }
 
     public void registerMatch(Match p) {               

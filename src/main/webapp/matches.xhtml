@@ -21,8 +21,8 @@
                     <div class="nav-collapse">
                         <ul class="nav">
                             <li><h:commandLink action="index.xhtml">Calendar </h:commandLink></li>
-                            <li><h:commandLink action="matches.xhtml">Matches </h:commandLink></li>                            
-                            <li class="active"><a>Players </a></li>
+                            <li class="active"><a>Matches </a></li>
+                            <li><h:commandLink action="players.xhtml">Players </h:commandLink></li>
                         </ul> 
                     </div>
                     <div align="right">Version 0.3</div>
@@ -38,23 +38,27 @@
 
             <div class="span6">
                 <br/><br/><br/>
-                <h:dataTable value="#{allPlayersBean.allPlayers}" var="player" class="table">
+                <h:dataTable value="#{allMatchesBean.allMatches}" var="match" class="table">   
                     <f:facet name="header">
-                        <h2><h:outputText value="Players" style="color:#f89406"/></h2>
-                        <h:form class="well form-inline">
-                            Name <h:inputText id="name" class="input-medium" value="#{allPlayersBean.name}" label="Name"/>
-                            Mail <h:inputText id="mail" class="input-medium" value="#{allPlayersBean.mail}" label="Mail"/>
-                            &nbsp;<h:commandLink class="btn btn-primary" action="#{allPlayersBean.register()}"><i class="icon-user icon-white"></i> Add</h:commandLink>
-                            <h:messages style="color:red" for="name"/>
-                            <h:messages style="color:red" for="mail"/>                    
+                        <h2><h:outputText value="Matches" style="color:#f89406"/></h2>                        
+                    </f:facet>                    
+                    <h:column>
+                        <i class="icon-time"/>&nbsp;<h:outputText value="#{match.date}"/>
+                    </h:column> 
+                    <h:column>
+                        <i class="icon-user"/>&nbsp;<h:outputText value="#{match.nbPlayers}"/>
+                    </h:column> 
+                    <h:column>
+                        <i class="icon-question-sign"/>&nbsp;<h:outputText value="#{match.nbGuests}"/>
+                    </h:column> 
+                    <h:column>
+                        <i class="icon-user"/><i class="icon-question-sign"/>&nbsp;<h:outputText value="#{match.nbPlayersAndGuests}"/>
+                    </h:column>  
+                    <h:column>
+                        <h:form>
+                            <h:commandLink class="btn btn-danger" action="#{allMatchesBean.removeMatch(match)}"><i class="icon-minus icon-white"></i></h:commandLink>
                         </h:form>
-                    </f:facet>
-                    <h:column>
-                        <i class="icon-user"/>&nbsp;<h:outputText value="#{player.name}"/>
-                    </h:column> 
-                    <h:column>
-                        <i class="icon-envelope"/>&nbsp;<h:outputText value="#{player.mail}"/>
-                    </h:column> 
+                    </h:column>
                 </h:dataTable>
 
             </div>
