@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="RPLAYER")
 @NamedQueries({
     @NamedQuery(name = Player.FIND_ALL,
-    query = "SELECT p FROM Player p order by p.id"),
+    query = "SELECT p FROM Player p order by p.name"),
     @NamedQuery(name = Player.FIND_BY_NAME,
     query = "SELECT p FROM Player p where p.name=:name")
 })

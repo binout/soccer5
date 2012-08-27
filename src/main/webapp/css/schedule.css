@@ -1,0 +1,20 @@
+/* 
+    Document   : schedule
+    Created on : 27 août 2012, 19:57:56
+    Author     : benoit
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.open-match, .open-match .fc-event-skin, .public-event a{
+    background-color: red; 
+    color: black;
+    border-color: black;
+}
+
+.full-match, .full-match .fc-event-skin, .public-event a{
+    background-color: green; 
+    color: black;
+    border-color: black;
+}
+

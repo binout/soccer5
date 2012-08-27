@@ -39,7 +39,14 @@ public class ScheduleBean {
     public void initSchedule() {
         schedule = new DefaultScheduleModel();
         for (Match m : ejb.listMatches()) {
-            schedule.addEvent(new DefaultScheduleEvent("Match("+m.getNbPlayersAndGuests()+"/10)", m.getDate(), m.getEndDate(), m));
+            final DefaultScheduleEvent event = new DefaultScheduleEvent("Match("+m.getNbPlayersAndGuests()+"/10)", m.getDate(), m.getEndDate());
+            if (m.isFull()) {
+                event.setTitle("Match");
+                event.setStyleClass("full-match");
+            } else {
+                event.setStyleClass("open-match");
+            }
+            schedule.addEvent(event);
         }
     }
 }

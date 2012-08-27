@@ -7,7 +7,8 @@
 
     <h:head>
         <title>Soccer5 Calendar</title> 
-        <meta name="description" content="Live CI"/> 
+        <meta name="description" content="Soccer5"/> 
+        <link href="./css/schedule.css" rel="stylesheet"/> 
         <link href="./css/bootstrap.css" rel="stylesheet"/> 
         <link href="./css/bootstrap-responsive.css" rel="stylesheet"/> 
     </h:head>
@@ -80,9 +81,14 @@
                 <h:dataTable value="#{calendarBean.matches}" var="match" class="table-striped">
                     <h:column>
                         <br/>
-                        <b>Match (<h:outputText value="#{match.nbPlayersAndGuests}"/>/10)<br/>
-                            <i class="icon-time"/><h:outputText value="#{match.date}"/>
-                        </b> 
+                        <b><i class="icon-time"/><h:outputText value="#{match.date}"/></b> 
+                        <br/>
+                        <h:panelGroup layout="block" rendered="#{match.open}">                        
+                        <b><font color="red">Missing <h:outputText value="#{match.missingPlayers()}"/> players !</font></b>
+                        </h:panelGroup>
+                        <h:panelGroup layout="block" rendered="#{match.full}">                        
+                        <b><font color="green">The match is full !</font></b>                            
+                        </h:panelGroup>
                         <!-- List of players -->
                         <h:dataTable value="#{match.players}" var="player" class="table-striped">
                             <h:column>

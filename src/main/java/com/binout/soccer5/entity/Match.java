@@ -33,6 +33,7 @@ public class Match {
     public final static String FIND_ALL = "match.findAll";
     public final static String FIND_BY_DATE = "match.findByDate";
     public final static String FIND_NEXT_MATCHES = "match.findNextMatches";
+    public static final int MAX_PLAYERS = 10;
 
     @Id
     @GeneratedValue
@@ -97,6 +98,9 @@ public class Match {
         return getNbPlayers() + getNbGuests();
     }
     
+    public int missingPlayers() {
+        return MAX_PLAYERS - getNbPlayersAndGuests();
+    }
     
     public Set<String> getGuests() {
         return guests;
@@ -124,7 +128,7 @@ public class Match {
     }
     
     public boolean isFull() {
-        return 10 == (getNbGuests() + getNbPlayers());
+        return MAX_PLAYERS == (getNbGuests() + getNbPlayers());
     }
     
     public boolean isOpen() {
