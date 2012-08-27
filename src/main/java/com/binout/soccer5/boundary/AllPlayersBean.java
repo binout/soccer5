@@ -9,7 +9,9 @@ import com.binout.soccer5.controller.PlayerEJB;
 import com.binout.soccer5.entity.Player;
 
 import com.google.common.base.Strings;
+import javax.annotation.PostConstruct;
 import javax.validation.constraints.Size;
+
 
 @Model
 public class AllPlayersBean {
@@ -52,5 +54,26 @@ public class AllPlayersBean {
         name = null;
         mail = null;
     }
+    
+    @PostConstruct
+    public void initAllPlayers() {
+        createPlayer("Benoit Prioux","binout@gmail.com");
+        createPlayer("Guillaume Delbast", "guillaumedelbast@hotmail.com");
+        createPlayer("Yoann Bourget", "yoannbourget@gmail.com");
+        createPlayer("Guillaume Ros", "g.ros33@yahoo.fr");
+        createPlayer("Adrien Gaboriaud", "adriengaboriaud@gmail.com");
+        createPlayer("Xavier Germond", "xavier_germond@hotmail.com");
+        createPlayer("Mikael Bazin", "mulderf@free.fr");
+    }
 
+    private void createPlayer(String name, String mail) {
+        Player p = new Player();
+        p.setName(name);
+        p.setMail(mail);
+        try {
+            ejb.registerPlayer(p);
+        } catch (Throwable t) {
+        }        
+    }
+    
 }
