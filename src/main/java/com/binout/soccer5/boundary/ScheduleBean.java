@@ -39,7 +39,7 @@ public class ScheduleBean {
     public void initSchedule() {
         schedule = new DefaultScheduleModel();
         for (Match m : ejb.listMatches()) {
-            schedule.addEvent(new DefaultScheduleEvent("Match " + m.getId(), m.getDate(), m.getEndDate(), m));
+            schedule.addEvent(new DefaultScheduleEvent("Match("+m.getNbPlayersAndGuests()+"/10)", m.getDate(), m.getEndDate(), m));
         }
     }
 }

@@ -81,9 +81,7 @@
                     <h:column>
                         <br/>
                         <b>Match (<h:outputText value="#{match.nbPlayersAndGuests}"/>/10)<br/>
-                            <i class="icon-time"/><h:outputText value="#{match.date}">
-                                <f:convertDateTime type="date" timeZone="Europe/Paris" pattern="E dd/MM/yyyy HH:mm" />
-                            </h:outputText>
+                            <i class="icon-time"/><h:outputText value="#{match.date}"/>
                         </b> 
                         <!-- List of players -->
                         <h:dataTable value="#{match.players}" var="player" class="table-striped">
