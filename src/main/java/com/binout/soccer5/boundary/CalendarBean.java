@@ -8,6 +8,7 @@ import com.binout.soccer5.controller.MatchEJB;
 import com.binout.soccer5.controller.PlayerEJB;
 import com.binout.soccer5.entity.Match;
 import com.binout.soccer5.entity.Player;
+import com.google.common.base.Strings;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -102,14 +103,18 @@ public class CalendarBean {
     }
     
     public void addGuest(Match m)  {
-        matchEjb.registerGuestToMatch(m, guest);
-        guest = null;
-        initNextMatches();
+        if (!Strings.isNullOrEmpty(guest)) {
+            matchEjb.registerGuestToMatch(m, guest);
+            guest = null;
+            initNextMatches();
+        }
     }
     
     public void removeGuest(Match m, String g) {
-        matchEjb.unregisterGuestToMatch(m, g);
-        initNextMatches();
+        if (!Strings.isNullOrEmpty(guest)) {
+            matchEjb.unregisterGuestToMatch(m, g);
+            initNextMatches();
+        }
     }
 
 }
