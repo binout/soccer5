@@ -34,16 +34,13 @@ public class LoginBean {
         this.password = password;
     }
     
-    public String checkCredential() {
+    public void checkCredential() {
         boolean logged = "root".equals(login) && "lectra".equals(password);
-        String redirect = "index.xhtml";
         if (logged) {
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AuthenticationFilter.AUTH_KEY, login);
-            redirect = "admin.xhtml";
         }
         login = null;
         password = null;
-        return redirect;
     }
     
     public boolean isLoggedIn() {
@@ -53,5 +50,9 @@ public class LoginBean {
     public boolean isNotLoggedIn() {
         return !isLoggedIn();
     }
+    
+    public void logout() {
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove(AuthenticationFilter.AUTH_KEY);
+    }       
     
 }

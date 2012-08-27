@@ -18,8 +18,7 @@ public class AuthenticationFilter implements Filter {
     public static final String AUTH_KEY = "app.user.name";
     private FilterConfig config;
 
-    public void doFilter(ServletRequest req, ServletResponse resp,
-            FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         if (((HttpServletRequest) req).getSession().getAttribute(AUTH_KEY) == null) {
             ((HttpServletResponse) resp).sendRedirect("index.xhtml");
         } else {
