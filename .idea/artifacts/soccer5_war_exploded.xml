@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="soccer5:war exploded">
+    <output-path>$PROJECT_DIR$/target/soccer5-0.4</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="soccer5/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="soccer5" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:3.2" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:12.0" />
+          <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:1.3.9" />
+          <element id="library" level="project" name="Maven: joda-time:joda-time:2.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
