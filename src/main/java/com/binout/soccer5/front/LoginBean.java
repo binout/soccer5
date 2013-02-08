@@ -1,17 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.binout.soccer5.boundary;
+package com.binout.soccer5.front;
 
-import com.binout.soccer5.boundary.filter.AuthenticationFilter;
+import com.binout.soccer5.front.filter.AuthenticationFilter;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 
-/**
- *
- * @author benoit
- */
 @Model
 public class LoginBean {
     

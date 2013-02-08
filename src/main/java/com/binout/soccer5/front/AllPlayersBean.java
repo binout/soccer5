@@ -1,17 +1,16 @@
-package com.binout.soccer5.boundary;
+package com.binout.soccer5.front;
 
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.inject.Model;
 
-import com.binout.soccer5.controller.PlayerEJB;
+import com.binout.soccer5.back.PlayerEJB;
 import com.binout.soccer5.entity.Player;
 
 import com.google.common.base.Strings;
 import javax.annotation.PostConstruct;
 import javax.validation.constraints.Size;
-
 
 @Model
 public class AllPlayersBean {

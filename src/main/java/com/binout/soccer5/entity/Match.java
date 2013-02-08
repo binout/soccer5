@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.binout.soccer5.entity;
 
 import java.util.ArrayList;
@@ -12,10 +8,6 @@ import java.util.Set;
 import javax.persistence.*;
 import org.joda.time.DateTime;
 
-/**
- *
- * @author benoit
- */
 @Entity
 @Table(name="RMATCH")
 @NamedQueries({

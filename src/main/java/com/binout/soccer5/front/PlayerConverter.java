@@ -1,10 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.binout.soccer5.boundary;
+package com.binout.soccer5.front;
 
-import com.binout.soccer5.controller.PlayerEJB;
+import com.binout.soccer5.back.PlayerEJB;
 import com.binout.soccer5.entity.Player;
 import javax.enterprise.inject.Model;
 import javax.faces.component.UIComponent;
@@ -12,10 +8,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.inject.Inject;
 
-/**
- *
- * @author benoit
- */
 @Model
 public class PlayerConverter implements Converter{
 

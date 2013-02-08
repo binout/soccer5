@@ -1,6 +1,6 @@
-package com.binout.soccer5.boundary;
+package com.binout.soccer5.front;
 
-import com.binout.soccer5.controller.MatchEJB;
+import com.binout.soccer5.back.MatchEJB;
 import java.util.List;
 
 import javax.ejb.EJB;

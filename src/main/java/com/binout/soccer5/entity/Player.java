@@ -1,16 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.binout.soccer5.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-/**
- *
- * @author benoit
- */
 @Entity
 @Table(name="RPLAYER")
 @NamedQueries({

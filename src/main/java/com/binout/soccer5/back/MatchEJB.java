@@ -1,4 +1,4 @@
-package com.binout.soccer5.controller;
+package com.binout.soccer5.back;
 
 import java.util.List;
 
@@ -10,7 +10,6 @@ import com.binout.soccer5.entity.Match;
 import com.binout.soccer5.entity.Player;
 import java.util.Date;
 import javax.ejb.Stateless;
-import javax.persistence.NoResultException;
 
 @Stateless
 public class MatchEJB {

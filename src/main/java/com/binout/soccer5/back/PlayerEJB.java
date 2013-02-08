@@ -1,4 +1,4 @@
-package com.binout.soccer5.controller;
+package com.binout.soccer5.back;
 
 import java.util.List;
 

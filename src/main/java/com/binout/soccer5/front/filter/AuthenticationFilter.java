@@ -1,18 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.binout.soccer5.boundary.filter;
+package com.binout.soccer5.front.filter;
 
 import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author benoit
- */
 public class AuthenticationFilter implements Filter {
 
     public static final String AUTH_KEY = "app.user.name";

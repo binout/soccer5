@@ -1,10 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.binout.soccer5.boundary;
+package com.binout.soccer5.front;
 
-import com.binout.soccer5.controller.MatchEJB;
+import com.binout.soccer5.back.MatchEJB;
 import com.binout.soccer5.entity.Match;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -13,10 +9,6 @@ import org.primefaces.model.DefaultScheduleEvent;
 import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.ScheduleModel;
 
-/**
- *
- * @author benoit
- */
 @Model
 public class ScheduleBean {
 

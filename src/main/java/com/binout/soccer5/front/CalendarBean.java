@@ -1,11 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.binout.soccer5.boundary;
+package com.binout.soccer5.front;
 
-import com.binout.soccer5.controller.MatchEJB;
-import com.binout.soccer5.controller.PlayerEJB;
+import com.binout.soccer5.back.MatchEJB;
+import com.binout.soccer5.back.PlayerEJB;
 import com.binout.soccer5.entity.Match;
 import com.binout.soccer5.entity.Player;
 import com.google.common.base.Strings;
@@ -18,10 +14,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 
-/**
- *
- * @author benoit
- */
 @Model
 public class CalendarBean {
 
