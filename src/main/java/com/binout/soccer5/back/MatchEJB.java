@@ -54,6 +54,11 @@ public class MatchEJB {
     public void registerPlayerToMatch(Match m, Player p) {
         Match match = em.merge(m);
         Player player = em.merge(p);
+        for (Player alreadyRegistered : match.getPlayers())  {
+            if (alreadyRegistered.getId().equals(player.getId())) {
+                return;
+            }
+        }
         match.addPlayer(player);
     }
     
