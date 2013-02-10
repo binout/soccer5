@@ -1,11 +1,14 @@
 package com.binout.soccer5.entity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.joda.time.DateTime;
 
 @Entity
@@ -20,6 +23,7 @@ import org.joda.time.DateTime;
         + "FROM Match m "
         + "where m.date >= :today order by m.date asc")
 })
+@XmlRootElement
 public class Match {
     
     public final static String FIND_ALL = "match.findAll";
@@ -51,6 +55,10 @@ public class Match {
         return date;
     }
 
+    public String getDateStr() {
+        return new SimpleDateFormat().format(getDate());
+    }
+
     public void setDate(Date date) {
         this.date = date;
     }
@@ -59,6 +67,10 @@ public class Match {
         DateTime dt = new DateTime(date);
         dt.plusHours(2);
         return dt.toDate();
+    }
+
+    public String getEndDateStr() {
+        return new SimpleDateFormat().format(getEndDate());
     }
 
     public List<Player> getPlayers() {
@@ -90,12 +102,12 @@ public class Match {
         return getNbPlayers() + getNbGuests();
     }
     
-    public int missingPlayers() {
+    public int getMissingPlayers() {
         return MAX_PLAYERS - getNbPlayersAndGuests();
     }
     
-    public Set<String> getGuests() {
-        return guests;
+    public String[] getGuests() {
+        return guests.toArray(new String[0]);
     }
 
      public void addGuest(String p) {

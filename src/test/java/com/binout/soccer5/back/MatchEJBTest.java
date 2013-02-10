@@ -29,8 +29,8 @@ public class MatchEJBTest {
     @Deployment
     public static Archive<?> createDeployment() {
         return ShrinkWrap.create(WebArchive.class, "test.war")
-                .addPackage(PlayerEJB.class.getPackage())
-                .addPackage(Player.class.getPackage())
+                .addPackage(MatchEJB.class.getPackage())
+                .addPackage(Match.class.getPackage())
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }

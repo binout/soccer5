@@ -2,6 +2,7 @@ package com.binout.soccer5.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name="RPLAYER")
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = Player.FIND_BY_NAME,
     query = "SELECT p FROM Player p where p.name=:name")
 })
+@XmlRootElement
 public class Player {
 
     public final static String FIND_ALL = "player.findAll";

@@ -1,5 +1,6 @@
 package com.binout.soccer5.back;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,8 +11,12 @@ import com.binout.soccer5.entity.Match;
 import com.binout.soccer5.entity.Player;
 import java.util.Date;
 import javax.ejb.Stateless;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 
 @Stateless
+@Path("/match")
 public class MatchEJB {
 
     @PersistenceContext
@@ -46,6 +51,8 @@ public class MatchEJB {
         }
     }
 
+    @GET
+    @Produces("application/json")
     public List<Match> listMatches() {
         TypedQuery<Match> query = em.createNamedQuery(Match.FIND_ALL, Match.class);
         return query.getResultList();
@@ -64,7 +71,8 @@ public class MatchEJB {
     
     public void registerGuestToMatch(Match m, String guest) {
         Match match = em.merge(m);
-        if (!match.getGuests().contains(guest)) {
+        List<String> guests = Arrays.asList(match.getGuests());
+        if (!guests.contains(guest)) {
             match.addGuest(guest);
         }
     }
@@ -79,7 +87,10 @@ public class MatchEJB {
         Player player = em.merge(p);
         match.removePlayer(player);
     }
-    
+
+    @GET
+    @Path("/next")
+    @Produces("application/json")
     public List<Match> getNextMatches() {
         TypedQuery<Match> query = em.createNamedQuery(Match.FIND_NEXT_MATCHES, Match.class);
         query.setParameter("today", new Date());

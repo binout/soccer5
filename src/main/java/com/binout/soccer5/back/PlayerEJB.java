@@ -8,8 +8,12 @@ import javax.persistence.TypedQuery;
 
 import com.binout.soccer5.entity.Player;
 import javax.ejb.Stateless;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 
 @Stateless
+@Path("/player")
 public class PlayerEJB {
 
     @PersistenceContext
@@ -40,6 +44,8 @@ public class PlayerEJB {
         }
     }
 
+    @GET
+    @Produces("application/json")
     public List<Player> listPlayers() {
         TypedQuery<Player> query = em.createNamedQuery(Player.FIND_ALL, Player.class);
         return query.getResultList();

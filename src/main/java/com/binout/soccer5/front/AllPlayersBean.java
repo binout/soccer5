@@ -53,20 +53,6 @@ public class AllPlayersBean {
         name = null;
         mail = null;
     }
-    
-    @PostConstruct
-    public void initAllPlayers() {
-        createPlayer("Benoit Prioux","binout@gmail.com");
-        createPlayer("Guillaume Delbast", "guillaumedelbast@hotmail.com");
-        createPlayer("Yoann Bourget", "yoannbourget@gmail.com");
-        createPlayer("Guillaume Ros", "g.ros33@yahoo.fr");
-        createPlayer("Adrien Gaboriaud", "adriengaboriaud@gmail.com");
-        createPlayer("Xavier Germond", "xavier_germond@hotmail.com");
-        createPlayer("Mikael Bazin", "mulderf@free.fr");
-        createPlayer("Arnaud Balourdet", "arnaud.balourdet@laposte.net");
-        createPlayer("Bogdan Ghita", "bogdanght@yahoo.fr");
-        createPlayer("Jonathan Carre", "jonathan_carre@me.com");
-    }
 
     private void createPlayer(String name, String mail) {
         Player p = new Player();

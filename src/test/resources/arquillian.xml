@@ -9,6 +9,7 @@
             <property name="resourcesXml">
                 src/test/resources-glassfish-embedded/glassfish-resources.xml
             </property>
+            <property name="bindHttpPort">8080</property>
         </configuration>
     </container>
 </arquillian>
