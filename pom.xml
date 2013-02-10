@@ -5,7 +5,7 @@
 
     <groupId>com.binout</groupId>
     <artifactId>soccer5</artifactId>
-    <version>0.4</version>
+    <version>0.5</version>
     <packaging>war</packaging>
 
     <properties>
@@ -139,14 +139,7 @@
 
     <profiles>
         <profile>
-        <!-- When built in OpenShift the 'openshift' profile will be used when 
-                invoking mvn. -->
-        <!-- Use this profile for any OpenShift specific customization your app 
-                will need. -->
-        <!-- By default that is to put the resulting archive into the 'deployments' 
-                folder. -->
-        <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
-            <id>openshift</id>
+          <id>openshift</id>
             <build>
                 <plugins>
                     <plugin>
@@ -168,14 +161,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>				
-                    <plugin>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>2.1.1</version>
-                        <configuration>
-                            <outputDirectory>../soccer-binout.rhcloud.com/deployments</outputDirectory>
-                            <warName>soccer5</warName>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>

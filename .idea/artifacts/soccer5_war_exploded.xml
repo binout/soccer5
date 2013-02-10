@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="soccer5:war exploded">
-    <output-path>$PROJECT_DIR$/target/soccer5-0.4</output-path>
+    <output-path>$PROJECT_DIR$/target/soccer5-0.5</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="soccer5/web/Web" />
       <element id="directory" name="WEB-INF">
