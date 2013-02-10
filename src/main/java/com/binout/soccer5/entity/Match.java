@@ -105,6 +105,11 @@ public class Match {
     public int getMissingPlayers() {
         return MAX_PLAYERS - getNbPlayersAndGuests();
     }
+
+    // fix for openshift
+    public int missingPlayers() {
+        return MAX_PLAYERS - getNbPlayersAndGuests();
+    }
     
     public String[] getGuests() {
         return guests.toArray(new String[0]);
