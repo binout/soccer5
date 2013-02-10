@@ -5,24 +5,16 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AuthenticationFilter implements Filter {
+public class AuthenticationFilter extends HttpFilter {
 
     public static final String AUTH_KEY = "app.user.name";
-    private FilterConfig config;
 
-    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-        if (((HttpServletRequest) req).getSession().getAttribute(AUTH_KEY) == null) {
+    public void doHttpFilter(HttpServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
+        if (req.getSession().getAttribute(AUTH_KEY) == null) {
             ((HttpServletResponse) resp).sendRedirect("index.xhtml");
         } else {
             chain.doFilter(req, resp);
         }
     }
 
-    public void init(FilterConfig config) throws ServletException {
-        this.config = config;
-    }
-
-    public void destroy() {
-        config = null;
-    }
 }
