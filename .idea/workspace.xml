@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15e913c2-9c38-400d-9656-5e4777630797" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/HttpFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/JSONPFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/AuthenticationFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/AuthenticationFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/VersionBean.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/version.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/matches.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/matches.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/players.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/players.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="soccer5.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="15e913c2-9c38-400d-9656-5e4777630797" time="1360514804636" ignored="false" />
+    <file path="/Dummy.txt" changelist="15e913c2-9c38-400d-9656-5e4777630797" time="1360524912328" ignored="false" />
     <file path="/persistence.xml" changelist="15e913c2-9c38-400d-9656-5e4777630797" time="1360359080799" ignored="false" />
     <file path="/pom.xml" changelist="15e913c2-9c38-400d-9656-5e4777630797" time="1360518424981" ignored="false" />
     <file path="/PlayerEJBTest.java" changelist="15e913c2-9c38-400d-9656-5e4777630797" time="1360361899599" ignored="false" />
@@ -26,6 +28,8 @@
     <file path="/web.xml" changelist="15e913c2-9c38-400d-9656-5e4777630797" time="1360519886202" ignored="false" />
     <file path="/HttpFilder.java" changelist="15e913c2-9c38-400d-9656-5e4777630797" time="1360520401557" ignored="false" />
     <file path="/AuthenticationFilter.java" changelist="15e913c2-9c38-400d-9656-5e4777630797" time="1360520457462" ignored="false" />
+    <file path="/VersionBean.java" changelist="15e913c2-9c38-400d-9656-5e4777630797" time="1360525234548" ignored="false" />
+    <file path="/players.xhtml" changelist="15e913c2-9c38-400d-9656-5e4777630797" time="1360525301581" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +47,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -77,7 +82,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -87,67 +91,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AllMatchesBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/AllMatchesBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="13" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AllPlayersBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/AllPlayersBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="5" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CalendarBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/CalendarBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/LoginBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerConverter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/PlayerConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="13" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScheduleBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/ScheduleBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AuthenticationFilter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/AuthenticationFilter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="13" column="40" selection-start="512" selection-end="540" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,26 +104,16 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/JSONPFilter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="12" column="0" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpFilter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/HttpFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="5" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+            <state />
+          </provider>
           <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
             <state />
           </provider>
@@ -183,12 +121,84 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="67" selection-start="1194" selection-end="1194" vertical-scroll-proportion="0.2962963">
+            <state line="27" column="67" selection-start="1194" selection-end="1194" vertical-scroll-proportion="-14.407408">
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="index.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="0" selection-start="1860" selection-end="1860" vertical-scroll-proportion="52.375">
+              <folding>
+                <marker date="1360525320000" expanded="true" signature="3052:3065" placeholder="{...}" />
+                <marker date="1360525320000" expanded="true" signature="3829:3842" placeholder="{...}" />
+                <marker date="1360525320000" expanded="true" signature="6742:6751" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matches.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/matches.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="0" selection-start="1321" selection-end="1321" vertical-scroll-proportion="-15.0">
+              <folding>
+                <marker date="1360525316000" expanded="true" signature="1752:1765" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="players.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/players.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="89" selection-start="1243" selection-end="1349" vertical-scroll-proportion="-12.5">
+              <folding>
+                <marker date="1360525309000" expanded="true" signature="1778:1791" placeholder="{...}" />
+                <marker date="1360525309000" expanded="true" signature="2319:2328" placeholder="{...}" />
+                <marker date="1360525309000" expanded="true" signature="2390:2399" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="23" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VersionBean.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/VersionBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="21" selection-start="476" selection-end="476" vertical-scroll-proportion="0.46067417">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScheduleBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/ScheduleBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="3" selection-start="365" selection-end="372" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="version.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/version.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="28" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -210,22 +220,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/binout/soccer5/entity/Match.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/AllPlayersBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/binout/soccer5/back/MatchEJB.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/binout/soccer5/back/PlayerEJB.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/binout/soccer5/back/MatchEJBTest.java" />
         <option value="$PROJECT_DIR$/src/test/resources/arquillian.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/binout/soccer5/back/MatchRestTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/binout/soccer5/back/PlayerRestTest.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/HttpFilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/AuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/HttpFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/JSONPRequestFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/JSONPFilter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/version.properties" />
+        <option value="$PROJECT_DIR$/src/main/webapp/players.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/matches.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/VersionBean.java" />
       </list>
     </option>
   </component>
@@ -284,7 +294,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -320,8 +329,22 @@
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources-glassfish-embedded" />
+              <option name="myItemId" value="soccer5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="soccer5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -339,29 +362,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soccer5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soccer5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -369,81 +370,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="back" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soccer5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="soccer5" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soccer5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soccer5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soccer5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soccer5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
+              <option name="myItemId" value="front" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -475,6 +406,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -491,12 +423,12 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -754,19 +686,6 @@
         </option>
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -793,6 +712,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -981,7 +913,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.066216215" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1068,50 +1000,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/binout/soccer5/back/PlayerRestTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="21" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/binout/soccer5/back/MatchEJBTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="40" selection-start="1259" selection-end="1259" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/back/MatchEJB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="5" selection-start="428" selection-end="444" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/back/PlayerEJB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="70" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="3" selection-start="5259" selection-end="5259" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/binout/soccer5/back/MatchRestTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="19" selection-start="1852" selection-end="1852" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/AllPlayersBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="5" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0">
@@ -1140,13 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/ScheduleBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/AllMatchesBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="13" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
@@ -1157,31 +1038,28 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/HttpFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="5" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/AuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="40" selection-start="512" selection-end="540" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/filter/JSONPFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="0" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+        <state />
+      </provider>
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
         <state />
       </provider>
@@ -1189,12 +1067,70 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="67" selection-start="1194" selection-end="1194" vertical-scroll-proportion="0.2962963">
+        <state line="27" column="67" selection-start="1194" selection-end="1194" vertical-scroll-proportion="-14.407408">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/ScheduleBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="3" selection-start="365" selection-end="372" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/version.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="28" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/players.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="89" selection-start="1243" selection-end="1349" vertical-scroll-proportion="-12.5">
+          <folding>
+            <marker date="1360525309000" expanded="true" signature="1778:1791" placeholder="{...}" />
+            <marker date="1360525309000" expanded="true" signature="2319:2328" placeholder="{...}" />
+            <marker date="1360525309000" expanded="true" signature="2390:2399" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/matches.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="1321" selection-end="1321" vertical-scroll-proportion="-15.0">
+          <folding>
+            <marker date="1360525316000" expanded="true" signature="1752:1765" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="1860" selection-end="1860" vertical-scroll-proportion="52.375">
+          <folding>
+            <marker date="1360525320000" expanded="true" signature="3052:3065" placeholder="{...}" />
+            <marker date="1360525320000" expanded="true" signature="3829:3842" placeholder="{...}" />
+            <marker date="1360525320000" expanded="true" signature="6742:6751" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="23" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/binout/soccer5/front/VersionBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="21" selection-start="476" selection-end="476" vertical-scroll-proportion="0.46067417">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
