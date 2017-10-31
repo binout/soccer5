@@ -27,7 +27,7 @@ public class LoginBean {
     }
     
     public void checkCredential() {
-        boolean logged = "root".equals(login) && "lectra".equals(password);
+        boolean logged = "admin".equals(login) && "admin".equals(password);
         if (logged) {
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AuthenticationFilter.AUTH_KEY, login);
         }
